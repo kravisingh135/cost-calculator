@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Latin&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body {
+            font-family: 'Anek Latin', sans-serif;
+        }
+        .costHeading {
+            position: relative;
+            margin-bottom: 18px;
+        }
+        .costHeading::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 3px;
+            z-index: 1;
+            left: 0;
+            bottom: 0;
+            background: #0d6efd;
+        }
+        .costHeading span {
+            font-weight: bold;
+            color: #0d6efd;
+        }
+    </style>
+    <script>
+      function fData() {
+        setTimeout(() => {
+          var rate = document.querySelector('#rateInput').value;
+          var area = document.querySelector('#areaInput').value;
+          var devCharge = document.querySelector('#devChargeInput').value;
+          var areaRate = parseInt(rate) * parseInt(area);
+          var costWithDev = areaRate + parseInt(devCharge);
+          var costWithTax = (costWithDev * 8) / 100;
+          var finalCost = costWithDev + costWithTax;
+          console.log(finalCost);
+          alert('Final Amount: ' + finalCost);
+          //return finalCost;
+        }, 200);
+      }
+    </script>
+    <head>
+      <body>
+        <div class="container"><br>
+          <h2 class="costHeading"><span>C</span>ost calculator</h2>
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Rate</label>
+            <input type="number" class="form-control" id="rateInput" />
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Area</label>
+            <input type="number" class="form-control" id="areaInput" />
+          </div>
+
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label"
+              >Dev Charge</label
+            >
+            <input type="number" class="form-control" id="devChargeInput" />
+          </div>
+          <div class="col-12">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="calculate"
+              onclick="fData()"
+            >
+              Calculate
+            </button>
+          </div>
+        </div>
+      </body>
+      <html></html>
+    </head>
+  </head>
+</html>
